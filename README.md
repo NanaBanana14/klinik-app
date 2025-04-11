@@ -46,7 +46,7 @@ Aplikasi ini bertujuan untuk:
 
 ---
 
-## ⚙Teknologi yang Digunakan
+## Teknologi yang Digunakan
 
 - **Yii2 Framework** (Advanced Template)
 - **Tailwind CSS** (UI styling)
