@@ -1,4 +1,4 @@
-# 🏥 Sistem Informasi Klinik
+# Sistem Informasi Klinik
 
 Proyek ini merupakan aplikasi **Sistem Informasi Klinik** berbasis web yang dikembangkan menggunakan **Yii2 Framework**, **Tailwind CSS** untuk tampilan antarmuka, dan **PostgreSQL** sebagai sistem manajemen basis data. Aplikasi ini dibuat sebagai bagian dari **tes kompetensi posisi Web Programmer di PT. Inova Medika Solusindo**, dengan fokus pada penerapan autentikasi berbasis peran (SRBAC), pengelolaan data master, transaksi pelayanan klinik, hingga laporan berbasis visualisasi data.
 
@@ -56,9 +56,9 @@ Aplikasi ini bertujuan untuk:
 
 ---
 
-## 📥 Cara Instalasi
+## Cara Instalasi
 
-### 🔧 Persiapan Awal
+### Persiapan
 
 Pastikan sudah menginstal:
 
