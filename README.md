@@ -129,7 +129,7 @@ Isi seperti berikut:
         'class' => 'yii\db\Connection',
         'dsn' => 'pgsql:host=localhost;dbname=klinik_db',
         'username' => 'postgres',
-        'password' => 'isi_passwordmu',
+        'password' => 'isi_password',
         'charset' => 'utf8',
     ],
 ],
