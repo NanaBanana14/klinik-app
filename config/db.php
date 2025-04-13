@@ -2,7 +2,7 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'pgsql:host=localhost;dbname=klinikdb',
+    'dsn' => 'pgsql:host=localhost;dbname=klinik_db',
     'username' => 'postgres',
     'password' => '123postgrepass',
     'charset' => 'utf8',
