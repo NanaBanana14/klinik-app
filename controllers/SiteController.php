@@ -43,34 +43,20 @@ class SiteController extends Controller
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {
-            return $this->goHome(); // If already logged in, redirect to the homepage
+            return $this->goHome();
         }
-
+    
         $model = new LoginForm();
-        
-        // Process the login form
+    
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            // Redirect based on the user's role after login
-            $role = Yii::$app->user->identity->role;
-            switch ($role) {
-                case 'admin':
-                    return $this->redirect(['admin/index']); // Redirect to admin page
-                case 'dokter':
-                    return $this->redirect(['dokter/index']); // Redirect to dokter page
-                case 'pendaftaran':
-                    return $this->redirect(['pendaftaran/index']); // Redirect to pendaftaran page
-                case 'kasir':
-                    return $this->redirect(['kasir/index']); // Redirect to kasir page
-                default:
-                    return $this->goHome(); // Redirect to the homepage if no specific role
-            }
+            return $this->goHome();
         }
-
-        // Render the login page if no POST request or invalid login attempt
+    
+        $model->password = '';
         return $this->render('login', [
             'model' => $model,
         ]);
-    }
+    }    
 
     /**
      * Logs the user out and redirects to the home page.
@@ -80,8 +66,8 @@ class SiteController extends Controller
     public function actionLogout()
     {
         Yii::$app->user->logout();
-        return $this->goHome();
-    }
+        return $this->redirect(['site/index']);
+    }    
 
     /**
      * Displays contact page.
@@ -123,6 +109,29 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $user = Yii::$app->user->identity;
+        $role = $user ? $user->role : 'guest';
+    
+        switch ($role) {
+            case 'admin':
+                return $this->render('dashboard/admin');
+            case 'dokter':
+                return $this->render('dashboard/dokter');
+            case 'pendaftaran':
+                return $this->render('dashboard/pendaftaran');
+            case 'kasir':
+                return $this->render('dashboard/kasir');
+            default:
+                return $this->render('index');
+        }
+    }
+    
+    public function actions()
+    {
+        return [
+            'error' => [
+                'class' => 'yii\web\ErrorAction',
+            ],
+        ];
     }
 }

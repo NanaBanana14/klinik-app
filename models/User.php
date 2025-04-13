@@ -81,9 +81,24 @@ class User extends ActiveRecord implements IdentityInterface
         return static::findOne(['username' => $username]);
     }
 
+    /**
+     * Returns the role of the user.
+     * @return string
+     */
     public function getRole()
     {
         return $this->role;
     }
 
+    /**
+     * {@inheritdoc}
+     */
+    public function rules()
+    {
+        return [
+            [['username', 'password_hash', 'role'], 'required'],
+            ['role', 'in', 'range' => ['admin', 'petugas', 'dokter', 'kasir'], 'message' => 'Role tidak valid'],
+            [['username', 'password_hash'], 'string', 'max' => 255],
+        ];
+    }
 }
