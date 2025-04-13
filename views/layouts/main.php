@@ -20,20 +20,21 @@ $role = $user->role ?? 'guest';
     <?php $this->head() ?>
     <link href="/css/site.css" rel="stylesheet">
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gradient-to-b from-white via-sky-50 to-white min-h-screen flex flex-col font-sans text-gray-700">
 <?php $this->beginBody() ?>
 
-<!-- 🔵 Navbar -->
+<!-- Navbar -->
 <header class="bg-white shadow-md sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
         <div class="flex items-center gap-3">
-            <img src="/images/clinic-icon.svg" class="h-8" alt="Logo Klinik">
+            <img src="https://rheumcareers.ca/wp-content/themes/rheumcareers/assets/img/clinic.png" class="h-8" alt="Logo Klinik">
             <span class="text-xl font-bold text-blue-600">Klinik App</span>
         </div>
         <div class="flex items-center gap-6">
             <?php if (Yii::$app->user->isGuest): ?>
-                <a href="/index.php?r=site/login" class="text-sm px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium transition-all">
+                <a href="/site/login" class="text-sm px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium transition-all">
                     Login
                 </a>
             <?php else: ?>
@@ -48,7 +49,7 @@ $role = $user->role ?? 'guest';
     </div>
 </header>
 
-<!-- 🧾 Main Content -->
+<!-- Main Content -->
 <main class="flex-1 max-w-7xl mx-auto w-full px-4 py-6">
     <?= Breadcrumbs::widget([
         'links' => $this->params['breadcrumbs'] ?? [],
@@ -59,7 +60,7 @@ $role = $user->role ?? 'guest';
     </div>
 </main>
 
-<!-- ⚪ Footer -->
+<!-- Footer -->
 <footer class="bg-blue-50 mt-8 border-t border-blue-100">
     <div class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-4 gap-6 text-sm text-gray-700">
         <!-- Tentang Klinik -->
@@ -102,7 +103,7 @@ $role = $user->role ?? 'guest';
     </div>
 
     <div class="border-t border-blue-100 mt-6 pt-4 pb-6 text-center text-xs text-gray-500">
-        &copy; <?= date('Y') ?> Klinik App. Dibuat dengan ❤️ oleh Tim Developer. Seluruh hak cipta dilindungi.
+        &copy; <?= date('Y') ?> Klinik App. Seluruh hak cipta dilindungi.
     </div>
 </footer>
 
