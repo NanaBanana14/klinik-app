@@ -80,4 +80,10 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return static::findOne(['username' => $username]);
     }
+
+    public function getRole()
+    {
+        return $this->role;
+    }
+
 }
