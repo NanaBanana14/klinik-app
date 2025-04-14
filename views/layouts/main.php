@@ -57,6 +57,9 @@ $role = $user->role ?? 'guest';
                         <a href="/dokter/index" class="text-sm px-4 py-2 rounded-lg bg-green-500 hover:bg-green-600 text-white font-medium transition-all">
                             Dokter
                         </a>
+                        <a href="/wilayah/index" class="text-sm px-4 py-2 rounded-lg bg-green-500 hover:bg-green-600 text-white font-medium transition-all">
+                            wilayah
+                        </a>
                     <?php endif; ?>
 
                     <a href="/site/logout" data-method="post"
