@@ -1,0 +1,38 @@
+<?php
+
+namespace app\models;
+
+use Yii;
+use yii\db\ActiveRecord;
+
+class Obat extends ActiveRecord
+{
+    public static function tableName()
+    {
+        return '{{%obat}}';
+    }
+
+    public function rules()
+    {
+        return [
+            [['nama', 'stok', 'harga'], 'required'],
+            [['nama'], 'string', 'max' => 255],
+            [['stok'], 'integer'],
+            [['harga'], 'number'],
+            [['satuan'], 'string', 'max' => 50],
+            [['deskripsi'], 'string'],
+        ];
+    }
+
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'nama' => 'Nama Obat',
+            'stok' => 'Stok',
+            'harga' => 'Harga',
+            'satuan' => 'Satuan',
+            'deskripsi' => 'Deskripsi',
+        ];
+    }
+}
