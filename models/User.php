@@ -101,4 +101,9 @@ class User extends ActiveRecord implements IdentityInterface
             [['username', 'password_hash'], 'string', 'max' => 255],
         ];
     }
+    
+    public function getDokter()
+    {
+        return $this->hasOne(Dokter::class, ['user_id' => 'id']);
+    }
 }

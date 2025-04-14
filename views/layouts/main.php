@@ -52,7 +52,10 @@ $role = $user->role ?? 'guest';
                     <!-- Navigasi berdasarkan Role -->
                     <?php if (Yii::$app->user->identity->role === 'admin'): ?>
                         <a href="/user/index" class="text-sm px-4 py-2 rounded-lg bg-green-500 hover:bg-green-600 text-white font-medium transition-all">
-                            Manajemen User
+                            User
+                        </a>
+                        <a href="/dokter/index" class="text-sm px-4 py-2 rounded-lg bg-green-500 hover:bg-green-600 text-white font-medium transition-all">
+                            Dokter
                         </a>
                     <?php endif; ?>
 
