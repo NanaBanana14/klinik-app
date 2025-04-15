@@ -58,7 +58,29 @@ $role = $user->role ?? 'guest';
                             Dokter
                         </a>
                         <a href="/wilayah/index" class="text-sm px-4 py-2 rounded-lg bg-green-500 hover:bg-green-600 text-white font-medium transition-all">
-                            wilayah
+                            Wilayah
+                        </a>
+                        <a href="/obat/index" class="text-sm px-4 py-2 rounded-lg bg-green-500 hover:bg-green-600 text-white font-medium transition-all">
+                            Obat
+                        </a>
+                        <a href="/tindakan/index" class="text-sm px-4 py-2 rounded-lg bg-green-500 hover:bg-green-600 text-white font-medium transition-all">
+                            Tindakan
+                        </a>
+                        <a href="/kunjungan/index" class="text-sm px-4 py-2 rounded-lg bg-green-500 hover:bg-green-600 text-white font-medium transition-all">
+                            Kunjungan
+                        </a>
+                        <a href="/transaksi/index" class="text-sm px-4 py-2 rounded-lg bg-green-500 hover:bg-green-600 text-white font-medium transition-all">
+                            Transaksi
+                        </a>
+                    <?php endif; ?>
+
+                    <!-- Navigasi berdasarkan Role -->
+                    <?php if (Yii::$app->user->identity->role === 'dokter'): ?>
+                        <a href="/obat/index" class="text-sm px-4 py-2 rounded-lg bg-green-500 hover:bg-green-600 text-white font-medium transition-all">
+                            Obat
+                        </a>
+                        <a href="/tindakan/index" class="text-sm px-4 py-2 rounded-lg bg-green-500 hover:bg-green-600 text-white font-medium transition-all">
+                            Tindakan
                         </a>
                     <?php endif; ?>
 

@@ -9,7 +9,7 @@ $kunjunganList = ArrayHelper::map(
     Kunjungan::find()->all(),
     'id',
     function($model) {
-        return 'Kunjungan #' . $model->id . ' - ' . Yii::$app->formatter->asDate($model->tanggal, 'php:d-m-Y');
+        return 'Kunjungan #' . $model->id . ' - ' . Yii::$app->formatter->asDate($model->tanggal_kunjungan, 'php:d-m-Y');
     }
 );
 ?>
@@ -25,7 +25,7 @@ $kunjunganList = ArrayHelper::map(
 
     <?= $form->field($model, 'total')->textInput() ?>
 
-    <?= $form->field($model, 'tanggal')->textInput(['type' => 'datetime-local']) ?>
+    <?= $form->field($model, 'tanggal')->input('datetime-local') ?>
 
     <?= $form->field($model, 'status')->dropDownList([
         'pending' => 'Pending',
