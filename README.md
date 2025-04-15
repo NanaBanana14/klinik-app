@@ -17,7 +17,7 @@ Aplikasi ini bertujuan untuk:
 ## Fitur Utama
 
 ### Login Multi-Level User (SRBAC)
-- Role: Admin, Petugas Pendaftaran, Dokter, Kasir
+- Role: Admin, Petugas, Dokter, Kasir
 - Setiap role hanya dapat mengakses fitur sesuai hak aksesnya
 
 ### Menu Master (CRUD)
@@ -26,6 +26,8 @@ Aplikasi ini bertujuan untuk:
 - **Pegawai**: Data staf klinik
 - **Tindakan**: Layanan medis yang tersedia
 - **Obat**: Daftar obat yang dapat diresepkan
+- **Kunjungan**: Daftar kunjungan pasien
+- **Transaksi**: Daftar transaksi
 
 ### Pendaftaran Pasien
 - Registrasi pasien baru
@@ -39,11 +41,6 @@ Aplikasi ini bertujuan untuk:
 - Hitung total biaya berdasarkan tindakan dan obat
 - Proses penyelesaian tagihan oleh kasir
 
-### Laporan Visual
-- Statistik kunjungan pasien
-- Grafik tindakan dan obat terbanyak
-- Visualisasi berbasis chart sederhana
-
 ---
 
 ## Teknologi yang Digunakan
@@ -51,7 +48,6 @@ Aplikasi ini bertujuan untuk:
 - **Yii2 Framework** (Advanced Template)
 - **Tailwind CSS** (UI styling)
 - **PostgreSQL** (Database)
-- **Chart.js / Google Charts** (untuk laporan visual)
 - **RBAC bawaan Yii2** (dengan penyesuaian sederhana untuk SRBAC)
 
 ---
