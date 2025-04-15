@@ -17,7 +17,7 @@ Aplikasi ini bertujuan untuk:
 ## Fitur Utama
 
 ### Login Multi-Level User (SRBAC)
-- Role: Admin, Petugas, Dokter, Kasir
+- Role: Admin, Petugas, Dokter, Kasir, Pasien
 - Setiap role hanya dapat mengakses fitur sesuai hak aksesnya
 
 ### Menu Master (CRUD)
