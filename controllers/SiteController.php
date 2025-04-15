@@ -3,114 +3,90 @@
 namespace app\controllers;
 
 use Yii;
-use yii\filters\AccessControl;
 use yii\web\Controller;
-use yii\web\Response;
-use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 use app\models\LoginForm;
 use app\models\ContactForm;
 
 class SiteController extends Controller
 {
     /**
-     * {@inheritdoc}
+     * Behaviors to implement access control
      */
     public function behaviors()
     {
         return [
             'access' => [
                 'class' => AccessControl::class,
-                'only' => ['logout'],
+                'only' => ['logout', 'login'],
                 'rules' => [
                     [
                         'actions' => ['logout'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::class,
-                'actions' => [
-                    'logout' => ['post'],
+                    [
+                        'actions' => ['login'],
+                        'allow' => true,
+                        'roles' => ['?'], // only guests can access the login page
+                    ],
                 ],
             ],
         ];
     }
 
     /**
-     * {@inheritdoc}
-     */
-    public function actions()
-    {
-        return [
-            'error' => [
-                'class' => 'yii\web\ErrorAction',
-            ],
-            'captcha' => [
-                'class' => 'yii\captcha\CaptchaAction',
-                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
-            ],
-        ];
-    }
-
-    /**
-     * Displays homepage.
+     * Displays login page.
      *
-     * @return string
-     */
-    public function actionIndex()
-    {
-        return $this->render('index');
-    }
-
-    /**
-     * Login action.
-     *
-     * @return Response|string
+     * @return mixed
      */
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
-
+    
         $model = new LoginForm();
+    
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            return $this->goHome();
         }
-
+    
         $model->password = '';
         return $this->render('login', [
             'model' => $model,
         ]);
-    }
+    }    
 
     /**
-     * Logout action.
+     * Logs the user out and redirects to the home page.
      *
-     * @return Response
+     * @return mixed
      */
     public function actionLogout()
     {
         Yii::$app->user->logout();
-
-        return $this->goHome();
-    }
+        return $this->redirect(['site/index']);
+    }    
 
     /**
      * Displays contact page.
      *
-     * @return Response|string
+     * @return mixed
      */
     public function actionContact()
     {
         $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            Yii::$app->mailer->compose()
+                ->setTo(Yii::$app->params['adminEmail'])
+                ->setSubject('Contact Form Submission')
+                ->setTextBody($model->body)
+                ->send();
             Yii::$app->session->setFlash('contactFormSubmitted');
-
             return $this->refresh();
         }
+
         return $this->render('contact', [
             'model' => $model,
         ]);
@@ -119,10 +95,43 @@ class SiteController extends Controller
     /**
      * Displays about page.
      *
-     * @return string
+     * @return mixed
      */
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    /**
+     * Displays homepage.
+     *
+     * @return mixed
+     */
+    public function actionIndex()
+    {
+        $user = Yii::$app->user->identity;
+        $role = $user ? $user->role : 'guest';
+    
+        switch ($role) {
+            case 'admin':
+                return $this->render('dashboard/admin');
+            case 'dokter':
+                return $this->render('dashboard/dokter');
+            case 'pendaftaran':
+                return $this->render('dashboard/pendaftaran');
+            case 'kasir':
+                return $this->render('dashboard/kasir');
+            default:
+                return $this->render('index');
+        }
+    }
+    
+    public function actions()
+    {
+        return [
+            'error' => [
+                'class' => 'yii\web\ErrorAction',
+            ],
+        ];
     }
 }
