@@ -1,39 +1,35 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\DetailView;
 
-/** @var yii\web\View $this */
-/** @var app\models\Wilayah $model */
+/* @var $this yii\web\View */
+/* @var $model app\models\Wilayah */
 
-$this->title = 'Detail Wilayah: ' . $model->id_wilayah;
-$this->params['breadcrumbs'][] = ['label' => 'Manajemen Wilayah', 'url' => ['index']];
+$this->title = 'View Wilayah: ' . $model->id;
+$this->params['breadcrumbs'][] = ['label' => 'Wilayah', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
 <div class="wilayah-view">
 
-    <h1 class="text-2xl font-bold mb-4"><?= Html::encode($this->title) ?></h1>
+    <h1><?= Html::encode($this->title) ?></h1>
 
-    <p class="mb-4">
-        <?= Html::a('Update', ['update', 'id' => $model->id_wilayah], ['class' => 'bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600']) ?>
-        <?= Html::a('Hapus', ['delete', 'id' => $model->id_wilayah], [
-            'class' => 'bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700',
+    <p><strong>Provinsi:</strong> <?= Html::encode($model->provinsi) ?></p>
+    <p><strong>Kabupaten:</strong> <?= Html::encode($model->kabupaten) ?></p>
+    <p><strong>Kecamatan:</strong> <?= Html::encode($model->kecamatan) ?></p>
+    <p><strong>Desa:</strong> <?= Html::encode($model->desa) ?></p>
+    <p><strong>RW:</strong> <?= Html::encode($model->rw) ?></p>
+    <p><strong>RT:</strong> <?= Html::encode($model->rt) ?></p>
+
+    <p>
+        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+            'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Yakin ingin menghapus data ini?',
+                'confirm' => 'Are you sure you want to delete this item?',
                 'method' => 'post',
             ],
         ]) ?>
     </p>
-
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id_wilayah',
-            'rt',
-            'rw',
-            'desa',
-            'kecamatan',
-        ],
-    ]) ?>
 
 </div>

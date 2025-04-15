@@ -2,18 +2,20 @@
 
 use yii\helpers\Html;
 
-/** @var yii\web\View $this */
-/** @var app\models\Wilayah $model */
+/* @var $this yii\web\View */
+/* @var $model app\models\Wilayah */
 
-$this->title = 'Update Wilayah: ' . $model->id_wilayah;
-$this->params['breadcrumbs'][] = ['label' => 'Manajemen Wilayah', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id_wilayah, 'url' => ['view', 'id' => $model->id_wilayah]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->title = 'Update Wilayah: ' . $model->id;
+$this->params['breadcrumbs'][] = ['label' => 'Wilayah', 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
 ?>
+
 <div class="wilayah-update">
 
-    <h1 class="text-2xl font-bold mb-4"><?= Html::encode($this->title) ?></h1>
+    <h1><?= Html::encode($this->title) ?></h1>
 
-    <?= $this->render('_form', ['model' => $model]) ?>
+    <?= $this->render('_form', [
+        'model' => $model,
+    ]) ?>
 
 </div>

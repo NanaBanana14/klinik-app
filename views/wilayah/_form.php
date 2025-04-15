@@ -1,28 +1,28 @@
 <?php
+
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
-$form = ActiveForm::begin();
+/* @var $this yii\web\View */
+/* @var $model app\models\Wilayah */
+/* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="mb-4">
-    <?= $form->field($model, 'rt')->textInput(['maxlength' => true, 'class' => 'form-input mt-1 block w-full']) ?>
-</div>
+<div class="wilayah-form">
 
-<div class="mb-4">
-    <?= $form->field($model, 'rw')->textInput(['maxlength' => true, 'class' => 'form-input mt-1 block w-full']) ?>
-</div>
+    <?php $form = ActiveForm::begin(); ?>
 
-<div class="mb-4">
-    <?= $form->field($model, 'desa')->textInput(['maxlength' => true, 'class' => 'form-input mt-1 block w-full']) ?>
-</div>
+    <?= $form->field($model, 'provinsi')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'kabupaten')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'kecamatan')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'desa')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'rw')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'rt')->textInput(['maxlength' => true]) ?>
 
-<div class="mb-4">
-    <?= $form->field($model, 'kecamatan')->textInput(['maxlength' => true, 'class' => 'form-input mt-1 block w-full']) ?>
-</div>
+    <div class="form-group">
+        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+    </div>
 
-<div class="form-group">
-    <?= Html::submitButton('Simpan', ['class' => 'bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700']) ?>
-</div>
+    <?php ActiveForm::end(); ?>
 
-<?php ActiveForm::end(); ?>
+</div>

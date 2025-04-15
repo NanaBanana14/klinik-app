@@ -25,19 +25,4 @@ class m250414_140807_create_table_wilayah extends Migration
         $this->dropTable('{{%wilayah}}');
     }
     
-
-    /*
-    // Use up()/down() to run migration code without a transaction.
-    public function up()
-    {
-
-    }
-
-    public function down()
-    {
-        echo "m250414_140807_create_table_wilayah cannot be reverted.\n";
-
-        return false;
-    }
-    */
 }

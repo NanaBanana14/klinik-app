@@ -6,14 +6,28 @@ use Yii;
 
 /**
  * This is the model class for table "wilayah".
+ *
+ * @property int $id
+ * @property string $provinsi
+ * @property string $kabupaten
+ * @property string $kecamatan
+ * @property string $desa
+ * @property string|null $rw
+ * @property string|null $rt
  */
 class Wilayah extends \yii\db\ActiveRecord
 {
+    /**
+     * {@inheritdoc}
+     */
     public static function tableName()
     {
         return 'wilayah';
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function rules()
     {
         return [
@@ -23,6 +37,9 @@ class Wilayah extends \yii\db\ActiveRecord
         ];
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function attributeLabels()
     {
         return [
