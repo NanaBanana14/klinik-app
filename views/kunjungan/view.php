@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <table class="table table-striped">
         <tr>
             <th>User</th>
-            <td><?= Html::encode($model->user->name) ?></td>
+            <td><?= Html::encode($model->user->username) ?></td>
         </tr>
         <tr>
             <th>Dokter</th>

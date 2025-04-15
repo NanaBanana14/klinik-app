@@ -15,11 +15,11 @@ use app\models\Wilayah;
 
     <?= $form->field($model, 'user_id')->dropDownList(
         ArrayHelper::map(
-            User::find()->all(),
+            User::find()->where(['role' => 'pasien'])->all(),
             'id',
             fn($user) => $user->username . " (ID: $user->id)"
         ),
-        ['prompt' => 'Pilih Pengguna']
+        ['prompt' => 'Pilih Pasien']
     ) ?>
 
     <?= $form->field($model, 'dokter_id')->dropDownList(

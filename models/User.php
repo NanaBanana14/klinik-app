@@ -97,7 +97,7 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return [
             [['username', 'password_hash', 'role'], 'required'],
-            ['role', 'in', 'range' => ['admin', 'petugas', 'dokter', 'kasir'], 'message' => 'Role tidak valid'],
+            ['role', 'in', 'range' => ['admin', 'petugas', 'dokter', 'kasir', 'pasien'], 'message' => 'Role tidak valid'],
             [['username', 'password_hash'], 'string', 'max' => 255],
         ];
     }

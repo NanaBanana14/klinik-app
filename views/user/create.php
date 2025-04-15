@@ -19,7 +19,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 'admin' => 'Admin', 
                 'petugas' => 'Petugas', 
                 'dokter' => 'Dokter', 
-                'kasir' => 'Kasir'
+                'kasir' => 'Kasir',
+                'pasien' => 'Pasien',
             ]) 
         ?>
 

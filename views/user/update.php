@@ -25,7 +25,8 @@ $this->params['breadcrumbs'][] = 'Update';
             'admin' => 'Admin', 
             'petugas' => 'Petugas', 
             'dokter' => 'Dokter', 
-            'kasir' => 'Kasir'
+            'kasir' => 'Kasir',
+            'pasien' => 'Pasien',
         ]) ?>
 
         <div class="form-group">
